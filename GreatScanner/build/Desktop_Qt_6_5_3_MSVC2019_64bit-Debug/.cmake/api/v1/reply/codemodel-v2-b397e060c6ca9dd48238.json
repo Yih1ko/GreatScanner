@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-85f377ae057692204917.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "GreatScanner",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "GreatScanner::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GreatScanner-Debug-8e37e97597a9da13843f.json",
+					"name" : "GreatScanner",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GreatScanner_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GreatScanner_autogen-Debug-9639cd55c56bc0ce2c1f.json",
+					"name" : "GreatScanner_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GreatScanner_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GreatScanner_autogen_timestamp_deps-Debug-7b6b950ddcfd6969d57a.json",
+					"name" : "GreatScanner_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug",
+		"source" : "D:/Qt projects/GreatScanner"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

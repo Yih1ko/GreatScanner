@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imageEditor/redo_no.png</file>
+        <file>imageEditor/redo_yes.png</file>
+        <file>imageEditor/undo_no.png</file>
+        <file>imageEditor/undo_yes.png</file>
+        <file>imageEditor/上.png</file>
+        <file>imageEditor/下.png</file>
+        <file>imageEditor/右.png</file>
+        <file>imageEditor/左.png</file>
+        <file>imageEditor/test/t1.png</file>
+    </qresource>
+</RCC>

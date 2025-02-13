@@ -1,0 +1,8 @@
+D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/CMakeFiles/GreatScanner.dir
+D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/CMakeFiles/edit_cache.dir
+D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/CMakeFiles/list_install_components.dir
+D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/CMakeFiles/install.dir
+D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/CMakeFiles/install/local.dir
+D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/CMakeFiles/GreatScanner_autogen_timestamp_deps.dir
+D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/CMakeFiles/GreatScanner_autogen.dir

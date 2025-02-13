@@ -1,0 +1,26 @@
+# ninja log v5
+6	156	7610769746629101	GreatScanner_autogen/timestamp	675f32d7d939f3d5
+504	2087	7607326656415534	CMakeFiles/GreatScanner.dir/layermanager.cpp.obj	c341808b4228603
+394	1942	7607234289827883	CMakeFiles/GreatScanner.dir/layer.cpp.obj	710b407284f86192
+6	156	7610769746629101	D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/GreatScanner_autogen/mocs_compilation.cpp	675f32d7d939f3d5
+964	3502	7606469877803818	CMakeFiles/GreatScanner.dir/mainwindow.cpp.obj	155049c757ac7732
+378	1995	7609907095038084	CMakeFiles/GreatScanner.dir/customtoolbutton.cpp.obj	6ae282059f1a6087
+184	1457	7610003250383893	CMakeFiles/GreatScanner.dir/undocommand.cpp.obj	40316525fb99fd4d
+325	473	7609227667348864	GreatScanner_autogen/EWIEGA46WW/qrc_assets.cpp	838183f184630e2e
+140	1792	7606471939424675	CMakeFiles/GreatScanner.dir/quadrilateralitem.cpp.obj	f70db50133202d26
+481	1213	7609227674907642	CMakeFiles/GreatScanner.dir/GreatScanner_autogen/EWIEGA46WW/qrc_assets.cpp.obj	6299ab0246797233
+2566	4692	7610769362312589	CMakeFiles/GreatScanner.dir/undo_stack_singleton.cpp.obj	d643349be1b15d41
+6765	7024	7610769830412151	GreatScanner.exe	8449f1eaf1f95aa2
+325	473	7609227667348864	D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/GreatScanner_autogen/EWIEGA46WW/qrc_assets.cpp	838183f184630e2e
+141	1557	7601898828411235	CMakeFiles/GreatScanner.dir/imageeditor.cpp.obj	1b5d66b84a1e16cb
+172	6765	7610769828204438	CMakeFiles/GreatScanner.dir/imgeditor.cpp.obj	2cb865bef34373f3
+185	1599	7610686191072691	CMakeFiles/GreatScanner.dir/movepointcommand.cpp.obj	9aad66cc285149b6
+6	156	7610769746629101	D:/Qt projects/GreatScanner/build/Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/GreatScanner_autogen/timestamp	675f32d7d939f3d5
+2310	4897	7610710838185649	CMakeFiles/GreatScanner.dir/rotateimgcommand.cpp.obj	4946594065bd6af
+2485	5131	7610769366803415	CMakeFiles/GreatScanner.dir/main.cpp.obj	f92734743f495d3c
+2510	5360	7610769369034120	CMakeFiles/GreatScanner.dir/GreatScanner_autogen/mocs_compilation.cpp.obj	ac9bf891b67ab2b4
+172	1614	7607973199884088	CMakeFiles/GreatScanner.dir/customgraphicsview.cpp.obj	c9352c5845e8099d
+584	2771	7608010336909300	CMakeFiles/GreatScanner.dir/infinitedial.cpp.obj	7e89cba7b8a074f9
+389	2385	7610668631060311	CMakeFiles/GreatScanner.dir/frame.cpp.obj	dcf2344bae2304bd
+6	156	7610769746629101	GreatScanner_autogen/mocs_compilation.cpp	675f32d7d939f3d5
+161	1833	7610769483949912	CMakeFiles/GreatScanner.dir/pointitem.cpp.obj	54281c9d77a3c96b
