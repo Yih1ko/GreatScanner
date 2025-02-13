@@ -1,10 +1,7 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include <QGraphicsObject>
-#include <QStyleOptionGraphicsItem>
 #include "pointitem.h"
-#include <QStack>
 
 class Frame : public QGraphicsObject
 {

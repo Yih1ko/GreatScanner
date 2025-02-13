@@ -1,8 +1,8 @@
 #ifndef INFINITEDIAL_H
 #define INFINITEDIAL_H
 
-#include <QDial>
-#include <QEvent.h>
+#include "global.h"
+
 class InfiniteDial : public QDial {
     Q_OBJECT
 public:

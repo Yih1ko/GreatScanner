@@ -1,8 +1,6 @@
 #ifndef MOVEPOINTCOMMAND_H
 #define MOVEPOINTCOMMAND_H
 
-#include <QUndoCommand>
-#include <QPointF>
 #include "pointitem.h"
 
 class MovePointCommand : public QUndoCommand {

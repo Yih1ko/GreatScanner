@@ -1,10 +1,7 @@
 #ifndef CUSTOMGRAPHICSVIEW_H
 #define CUSTOMGRAPHICSVIEW_H
 
-#include <QGraphicsView>
-#include <QObject>
-#include <QMouseEvent>
-#include <QScrollBar>
+#include "global.h"
 
 class CustomGraphicsView : public QGraphicsView {
     Q_OBJECT

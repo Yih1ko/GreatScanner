@@ -1,6 +1,4 @@
 #include "customgraphicsview.h"
-#include <QApplication>
-
 
 // 键盘按下事件（检测空格键）
 void CustomGraphicsView::keyPressEvent(QKeyEvent* event) {

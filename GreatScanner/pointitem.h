@@ -2,12 +2,7 @@
 #ifndef POINTITEM_H
 #define POINTITEM_H
 
-#include <QObject>
-#include <QAbstractGraphicsShapeItem>
-#include <QPainter>
-#include <QGraphicsSceneMouseEvent>
-#include <QPointF>
-#include <QGraphicsItem>
+#include "global.h"
 
 class PointItem : public QObject, public QAbstractGraphicsShapeItem {
     Q_OBJECT

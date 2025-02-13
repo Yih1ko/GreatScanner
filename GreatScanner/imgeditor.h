@@ -1,10 +1,8 @@
 #ifndef IMGEDITOR_H
 #define IMGEDITOR_H
 
-#include <QWidget>
+
 #include "frame.h"
-#include <QUndoStack>
-#include <QUndoCommand>
 #include "undo_stack_singleton.h"
 
 constexpr double MIN_SCALE = 0.1;
@@ -26,9 +24,9 @@ public:
 
 private slots:
 
-    void on_unDoBtn_clicked();
+    void on_undoBtn_clicked();
 
-    void on_reDoBtn_clicked();
+    void on_redoBtn_clicked();
 
     void onPointSelected(PointItem* item, bool state);
 
@@ -54,6 +52,8 @@ private slots:
 
 public slots:
     void moveSelectedPoint(qreal dx, qreal dy);
+    void updateUndoButtonState();
+    void updateRedoButtonState();
 
 private:
     Ui::ImgEditor *ui;

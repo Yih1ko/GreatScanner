@@ -1,9 +1,7 @@
 #ifndef CUSTOMTOOLBUTTON_H
 #define CUSTOMTOOLBUTTON_H
 
-#include <QToolButton>
-#include <QTimer>
-#include <qevent.h>
+#include "global.h"
 
 class CustomToolButton : public QToolButton {
     Q_OBJECT

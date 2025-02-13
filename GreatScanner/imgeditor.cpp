@@ -2,20 +2,13 @@
 #include "movepointcommand.h"
 #include "rotateimgcommand.h"
 #include "ui_imgeditor.h"
-#include <opencv2/opencv.hpp>
-#include <opencv2/core.hpp>       // 核心模块
-#include <opencv2/imgproc.hpp>    // 图像处理模块
-#include <opencv2/highgui.hpp>    // 图像显示模块
-#include <QGraphicsPixmapItem>
-#include <QPixmap>
-#include <qtpreprocessorsupport.h>
 
 void cropImage(const std::string& inputPath
                , const std::string& outputPath
                , const std::vector<cv::Point2f>& cvCropPoints) {
     // 读取输入图像
     cv::Mat src = cv::imread(inputPath);
-    if (src.empty())  {
+    if (src.empty()) {
         throw std::runtime_error("无法读取输入图像");
     }
 
@@ -37,13 +30,13 @@ void cropImage(const std::string& inputPath
     };
 
     // 确保输入点和目标点的类型一致
-    if (cvCropPoints.size()  != 4 || dstPoints.size()  != 4) {
+    if (cvCropPoints.size() != 4 || dstPoints.size() != 4) {
         throw std::runtime_error("输入和目标点的数量必须为4个");
     }
 
     // 计算透视变换矩阵
     cv::Mat perspectiveMatrix = cv::findHomography(cvCropPoints, dstPoints, cv::RANSAC, 3);
-    if (perspectiveMatrix.empty())  {
+    if (perspectiveMatrix.empty()) {
         throw std::runtime_error("无法计算透视变换矩阵");
     }
 
@@ -69,7 +62,7 @@ void RotatePoints(std::vector<cv::Point2f>& cvPoints,
 
     // 读取图片以获取尺寸
     cv::Mat image = cv::imread(imagePath);
-    if (image.empty())  {
+    if (image.empty()) {
         std::cerr << "Error: Could not open or find the image!" << std::endl;
         return;
     }
@@ -105,7 +98,7 @@ ImgEditor::ImgEditor(QWidget *parent, QString imgPath)
     : QWidget(parent)
     , ui(new Ui::ImgEditor)
     , m_scene(new QGraphicsScene(this))
-    , m_scaleFactor(1.0)       // 初始缩放
+    , m_scaleFactor(1.0) // 初始缩放
     ,m_lastDialValue(-1) // 初始化为非法值
     ,m_currentScale(1.0)
     // , m_currentXScale(1.0)
@@ -114,6 +107,14 @@ ImgEditor::ImgEditor(QWidget *parent, QString imgPath)
 {
     ui->setupUi(this);
 
+    // 连接QUndoStack的信号到按钮的槽
+    connect(UndoStackSingleton::GetInstance().getUndoStack(), &QUndoStack::canUndoChanged, this, &ImgEditor::updateUndoButtonState);
+    connect(UndoStackSingleton::GetInstance().getUndoStack(), &QUndoStack::canRedoChanged, this, &ImgEditor::updateRedoButtonState);
+
+    //初始化按钮状态
+    updateUndoButtonState();
+    updateRedoButtonState();
+
     // 初始化图形视图
     ui->graphicsView->setScene(m_scene);
 
@@ -121,7 +122,7 @@ ImgEditor::ImgEditor(QWidget *parent, QString imgPath)
     m_scene->setBackgroundBrush(QColor(50, 50, 50));
     // 加载图片并创建QGraphicsPixmapItem
     QPixmap backgroundPixmap(imgPath);
-    if (!backgroundPixmap.isNull())  {
+    if (!backgroundPixmap.isNull()) {
         //根据图片设定场景大小
         m_scene->setSceneRect(0, 0, backgroundPixmap.width(), backgroundPixmap.height());
         ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
@@ -133,14 +134,14 @@ ImgEditor::ImgEditor(QWidget *parent, QString imgPath)
 
         // 设置图元位置
         backgroundItem->setPos(
-            sceneRect.center().x()  - pixmapSize.width()  / 2.0,
-            sceneRect.center().y()  - pixmapSize.height()  / 2.0
+            sceneRect.center().x() - pixmapSize.width() / 2.0,
+            sceneRect.center().y() - pixmapSize.height() / 2.0
             );
 
         m_scene->addItem(backgroundItem);
         backgroundItem->setZValue(-1);
         //图片变换中心
-        backgroundItem->setTransformOriginPoint(backgroundPixmap.width()  / 2, backgroundPixmap.height()  / 2);
+        backgroundItem->setTransformOriginPoint(backgroundPixmap.width() / 2, backgroundPixmap.height() / 2);
         //get图片中心
         imageCenter = backgroundPixmap.rect().center();
     } else {
@@ -217,7 +218,7 @@ void ImgEditor::onPointSelected(PointItem *item, bool state)
 
 void ImgEditor::moveSelectedPoint(qreal dx, qreal dy)
 {
-    if(m_selectedPoint && m_selectedPoint->scene()) {   
+    if(m_selectedPoint && m_selectedPoint->scene()) {
         // 记录旧位置
         QPointF oldPos = m_selectedPoint->getPoint();
 
@@ -236,12 +237,22 @@ void ImgEditor::moveSelectedPoint(qreal dx, qreal dy)
     }
 }
 
+void ImgEditor::updateUndoButtonState()
+{
+    ui->undoBtn->setEnabled(UndoStackSingleton::GetInstance().getUndoStack()->canUndo());
+}
 
-void ImgEditor::on_unDoBtn_clicked() {
+void ImgEditor::updateRedoButtonState()
+{
+    ui->redoBtn->setEnabled(UndoStackSingleton::GetInstance().getUndoStack()->canRedo());
+}
+
+
+void ImgEditor::on_undoBtn_clicked() {
     UndoStackSingleton::GetInstance().getUndoStack()->undo();
 }
 
-void ImgEditor::on_reDoBtn_clicked() {
+void ImgEditor::on_redoBtn_clicked() {
     UndoStackSingleton::GetInstance().getUndoStack()->redo();
 }
 
@@ -300,7 +311,7 @@ void ImgEditor::viewScale(int value) {
 
     // 创建新的变换矩阵
     QTransform newTransform;
-    newTransform.scale(currentScale,  currentScale);
+    newTransform.scale(currentScale, currentScale);
 
     // 保持视图中心点不变
     QPointF viewCenter = ui->graphicsView->viewport()->rect().center();
@@ -326,7 +337,7 @@ void ImgEditor::handleCrop() {
 
     for (PointItem* point : points) {
         QPointF scenePos = point->mapToScene(QPointF(0, 0)); // 获取PointItems在场景中的位置
-        cvCropPoints.push_back(cv::Point2f(scenePos.x(),  scenePos.y()));
+        cvCropPoints.push_back(cv::Point2f(scenePos.x(), scenePos.y()));
     }
 
     // 获取背景图的中心坐标
@@ -338,13 +349,13 @@ void ImgEditor::handleCrop() {
 
     // 传递背景图的中心坐标到RotatePoints函数
     RotatePoints(cvCropPoints
-                     , -ui->rotate->value()/*角度传相反数因为背景转45度，对应Frame(前景)的角度是-45度*/
-                     , m_imgPath.toStdString());
+                 , -ui->rotate->value()/*角度传相反数因为背景转45度，对应Frame(前景)的角度是-45度*/
+                 , m_imgPath.toStdString());
 
     // 调用裁剪函数
     cropImage(
         m_imgPath.toStdString(),
-        "D:\\Qt projects\\GreatScanner\\imageEditor\\test\\outputs\\output.png",
+        imgEditor_output_path.toStdString(),
         cvCropPoints
         );
 }
@@ -383,7 +394,3 @@ void ImgEditor::on_rotate_sliderReleased()
     // 更新背景项的旋转角度
     backgroundItem->setRotation(newAngle);
 }
-
-
-
-

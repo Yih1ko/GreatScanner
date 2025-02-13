@@ -356,7 +356,7 @@
               <number>3</number>
              </property>
              <item>
-              <widget class="QPushButton" name="unDoBtn">
+              <widget class="QPushButton" name="undoBtn">
                <property name="text">
                 <string/>
                </property>
@@ -367,7 +367,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="reDoBtn">
+              <widget class="QPushButton" name="redoBtn">
                <property name="text">
                 <string/>
                </property>

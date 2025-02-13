@@ -1,8 +1,7 @@
 #ifndef ROTATEIMGCOMMAND_H
 #define ROTATEIMGCOMMAND_H
-#include <QUndoCommand>
-#include <QObject>
-#include <qslider.h>
+
+#include "global.h"
 
 class RotateImgCommand : public QUndoCommand {
 public:

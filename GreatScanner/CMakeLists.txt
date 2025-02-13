@@ -45,6 +45,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         rotateimgcommand.h rotateimgcommand.cpp
 
         undo_stack_singleton.cpp
+        config.ini
+        global.h
+        global.cpp
+
 
 
 

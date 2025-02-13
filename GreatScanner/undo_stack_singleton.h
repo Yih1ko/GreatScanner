@@ -1,9 +1,9 @@
 #ifndef UNDO_STACK_SINGLETON_H
 #define UNDO_STACK_SINGLETON_H
 
-#include <QUndoStack>
+#include "global.h"
 
-class UndoStackSingleton {
+class UndoStackSingleton{
 public:
     static UndoStackSingleton& GetInstance();
     ~UndoStackSingleton();

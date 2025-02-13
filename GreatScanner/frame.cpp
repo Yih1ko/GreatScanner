@@ -1,7 +1,4 @@
 #include "frame.h"
-#include <QPainter>
-#include <QTimer>
-#include <QDebug>
 /////////////////////////////////////////////////////////////////////////////////////////
 /// \brief 辅助函数isConvex: 检测是否为凸四边形
 /// \param polygon

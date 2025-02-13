@@ -1,8 +1,6 @@
 #include "pointitem.h"
 #include "movepointcommand.h"
 #include "undo_stack_singleton.h"
-#include <QCursor>
-#include <qstyleoption.h>
 
 PointItem::PointItem(QGraphicsItem* parent, const QPointF& pos)
     : QAbstractGraphicsShapeItem(parent)
