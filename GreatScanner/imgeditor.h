@@ -22,6 +22,12 @@ public:
     explicit ImgEditor(QWidget *parent = nullptr, QString imgPath = "");
     ~ImgEditor();
 
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+
 private slots:
 
     void on_undoBtn_clicked();
@@ -50,6 +56,8 @@ private slots:
 
     void on_rotate_sliderPressed();
 
+    void on_closeBtn_clicked();
+
 public slots:
     void moveSelectedPoint(qreal dx, qreal dy);
     void updateUndoButtonState();
@@ -57,6 +65,10 @@ public slots:
 
 private:
     Ui::ImgEditor *ui;
+    bool m_dragging = false; //当前窗体状态
+    QPoint m_offset; //窗体位置偏移量
+
+
     PointItem* m_selectedPoint = nullptr; // 当前选中点
     QGraphicsScene* m_scene;
     double m_scaleFactor;  // 记录当前缩放比例（初始1.0）

@@ -21,6 +21,7 @@
 #include <QSlider>          // 滑块组件
 #include <QDial>            // 旋钮控件
 #include <QPainter>         // 绘图工具
+#include <QGraphicsBlurEffect>           // 窗口模糊效果
 
 // 事件系统
 #include <QMouseEvent>      // 鼠标事件处理

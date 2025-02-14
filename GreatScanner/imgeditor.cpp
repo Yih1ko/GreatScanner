@@ -107,6 +107,11 @@ ImgEditor::ImgEditor(QWidget *parent, QString imgPath)
 {
     ui->setupUi(this);
 
+    // 去除边框并设置为顶层窗口
+    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    // 启用透明背景
+    setAttribute(Qt::WA_TranslucentBackground);
+
     // 连接QUndoStack的信号到按钮的槽
     connect(UndoStackSingleton::GetInstance().getUndoStack(), &QUndoStack::canUndoChanged, this, &ImgEditor::updateUndoButtonState);
     connect(UndoStackSingleton::GetInstance().getUndoStack(), &QUndoStack::canRedoChanged, this, &ImgEditor::updateRedoButtonState);
@@ -202,6 +207,47 @@ ImgEditor::~ImgEditor()
 {
     delete ui;
     delete m_scene;
+}
+
+void ImgEditor::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);  // 开启抗锯齿
+
+    QPainterPath path;
+    int radius = 10; // 圆角半径
+    QRect rect = this->rect().adjusted(0, 0, -1, -1);
+    path.addRoundedRect(rect,  radius, radius);
+
+    // 设置背景颜色（带透明度）
+    QBrush brush(QColor(255, 255, 255, 170)); // 白色半透明
+    painter.fillPath(path,  brush);
+
+    //绘制边框（可选）
+    QPen pen(QColor(200, 200, 200), 1);
+    painter.strokePath(path,  pen);
+}
+
+void ImgEditor::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        m_dragging = true;
+        m_offset = event->pos();
+    }
+}
+
+void ImgEditor::mouseMoveEvent(QMouseEvent *event)
+{
+    if (m_dragging) {
+        move(event->globalPos() - m_offset);
+    }
+}
+
+void ImgEditor::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        m_dragging = false;
+    }
 }
 
 void ImgEditor::onPointSelected(PointItem *item, bool state)
@@ -394,3 +440,9 @@ void ImgEditor::on_rotate_sliderReleased()
     // 更新背景项的旋转角度
     backgroundItem->setRotation(newAngle);
 }
+
+void ImgEditor::on_closeBtn_clicked()
+{
+    close();
+}
+

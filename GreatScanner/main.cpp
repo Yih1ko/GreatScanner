@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     loadConfig();
     ImgEditor w(nullptr, imgEditor_input_path);
     w.show();
+
     return a.exec();
 }
 
