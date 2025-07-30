@@ -53,5 +53,6 @@ saveExcels/*
 savePictures/*
 saveWMs/*
 imageEditor/test/outputs/*
+image/
 
 ocr_system_rls/
