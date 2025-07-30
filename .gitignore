@@ -1,0 +1,57 @@
+# ======================
+# 构建系统生成文件 
+# ======================
+build/         
+CMakeLists.txt.user  
+CMakeCache.txt 
+CMakeFiles/
+Makefile 
+*.qmake.stash  
+*.pro.user  
+*.autosave
+ 
+# ======================
+# 编译输出文件 
+# ======================
+*.exe
+*.dll
+*.lib 
+*.pdb 
+*.ilk
+*.obj 
+*.o
+*.exp 
+*.qm
+*.qrc.depends  
+*.app 
+*.so 
+*.a 
+ 
+# ======================
+# Qt 特定文件 
+# ======================
+.moc/
+.obj/
+.rcc/
+.ui/
+*.moc 
+moc_*.cpp 
+qrc_*.cpp 
+ui_*.h
+ 
+# ======================
+# IDE/编辑器文件 
+# ======================
+.qtc/
+.qtc_clangd/
+ 
+# ======================
+# 运行时文件 
+# ======================
+saveDocxes/* 
+saveExcels/*
+savePictures/*
+saveWMs/*
+imageEditor/test/outputs/*
+
+ocr_system_rls/
