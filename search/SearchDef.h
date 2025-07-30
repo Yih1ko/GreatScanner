@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <cctype>
 #include <iterator>
+#include <QDateTime>
 
 using RecordId = uint64_t;
 
@@ -41,29 +42,30 @@ using RecordId = uint64_t;
 
     template<>
     struct SearchMetaData<Page::PAGE_HISTORY>{
-        SearchMetaData()
-        {
-
-        }
-    private:
+        // 添加默认构造函数
+        SearchMetaData() = default;
+        SearchMetaData(const std::string& processType, const std::string& fileName, uint64_t fileSize, QDateTime date)
+            : processType(processType)
+            , fileName(fileName)
+            , fileSize(fileSize)
+            , date(date)
+        {}
+        std::string processType;
+        std::string fileName;
+        uint64_t fileSize;
+        QDateTime date;
     };
 
     template<>
     struct SearchMetaData<Page::PAGE_BACKUP>{
-        SearchMetaData()
-        {
-
-        }
-    private:
+        // 添加默认构造函数
+        SearchMetaData() = default;
     };
 
     template<>
     struct SearchMetaData<Page::PAGE_SETTINGS>{
-        SearchMetaData()
-        {
-
-        }
-    private:
+        // 添加默认构造函数
+        SearchMetaData() = default;
     };
 
     using MetaDataVariant = std::variant<

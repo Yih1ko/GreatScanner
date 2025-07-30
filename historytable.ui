@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HistoryTable</class>
+ <widget class="QWidget" name="HistoryTable">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>250</width>
+    <height>575</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QScrollArea {
+            background: transparent;          /* 滚动区域外框透明 */
+            border: none;                     /* 移除边框 */
+        }
+        QScrollArea &gt; QWidget &gt; QWidget {     /* 视口(viewport)选择器 */
+            background: transparent;          /* 视口内容透明 */
+        }
+
+        QScrollBar:vertical {
+            background: transparent; /* 将轨道背景设置为透明 */
+            width: 5px; /* 滚动条宽度，根据需要调整 */
+            margin: 0px; /* 移除滚动条与滑块之间的间距 */
+        }
+
+        QScrollBar::handle:vertical {
+            background: rgb(217, 217, 217); /* 滑块颜色 */
+            min-height: 10px; /* 滑块最小高度，根据需要调整 */
+            border-radius: 2px; /* 滑块边缘圆角，调整以形成椭圆形状 */
+        }
+
+        QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+            height: 0px; /* 移除上下按钮 */
+            border: none; /* 移除边框 */
+            background: transparent; /* 背景透明 */
+        }
+
+        QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+            background: none; /* 页面滚动部分背景透明 */
+        }</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="RecordAera">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>238</width>
+        <height>563</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

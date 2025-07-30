@@ -63,5 +63,8 @@
         <file>icons/ScreenShot/control_12.jpg</file>
         <file>icons/ScreenShot/control_13.jpg</file>
         <file>icons/ScreenShot/control_14.png</file>
+        <file>icons/Historyitem/打开.png</file>
+        <file>icons/Historyitem/删除.png</file>
+        <file>icons/Historyitem/上传.png</file>
     </qresource>
 </RCC>

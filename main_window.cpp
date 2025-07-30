@@ -8,6 +8,7 @@
 #include "globalkeyeventmgr.h"
 #include "search/SearchDef.h"
 #include <QtConcurrent>
+#include "historypage.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -81,6 +82,8 @@ void MainWindow::initUI()
     //插入页面(目前仅实现了PAGE_TOOLS)
     ToolsPage* toolsPage = new ToolsPage(this, ui->ContentArea); // 传入this指针
     ui->ContentArea->insertWidget(PAGE_TOOLS, toolsPage);
+    HistoryPage* historyPage = new HistoryPage(this);
+    ui->ContentArea->insertWidget(PAGE_FILE_HISTORY, historyPage);
     /******************************************************************************************/
     ui->Search->setAutoComplete(m_completer);
     // for(int i=0;i<30;i++){

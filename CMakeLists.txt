@@ -158,6 +158,8 @@ sql/sqlite/sqlitemgr.cpp sql/sqlite/sqlitemgr.h
 sql/sqlite/basedao.h
 sql/sqlite/historydao.h sql/sqlite/historydao.cpp
 historyrecorditem.h historyrecorditem.cpp historyrecorditem.ui
+historytable.h historytable.cpp historytable.ui
+historypage.h historypage.cpp historypage.ui
 
 
 

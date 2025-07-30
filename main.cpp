@@ -1,4 +1,5 @@
 ﻿#include "globalkeyeventmgr.h"
+#include "historypage.h"
 #include "loginorsignupwidget.h"
 #include "main_window.h"
 #include <QApplication>
@@ -15,6 +16,7 @@
 #include "localkeyeventmgr.h"
 #include "TestWindow.h"
 #include "autocomplete.h"
+#include "historyrecorditem.h"
 
 int main(int argc, char *argv[])
 {
@@ -30,6 +32,12 @@ int main(int argc, char *argv[])
     //login.show();
     MainWindow main;
     main.show();
+
+    // HistoryPage page;
+    // page.show();
+    // HistoryRecordItem item;
+    // item.show();
+
 
     // AutoComplete completer;
 
