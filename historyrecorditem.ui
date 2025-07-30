@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="ProcessTypeLabel">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -23,7 +23,10 @@
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>T</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
    </property>
   </widget>
  </widget>
