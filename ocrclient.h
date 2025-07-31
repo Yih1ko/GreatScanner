@@ -10,6 +10,8 @@
 #include "ipc/include/ShmIPCServer.h"
 #include "ipc/include/IShmChannelNotify.h"
 #include <Qqueue>
+#include "ipc/processctrl.h"
+#include <stdexcept>
 
 struct TaskNode {
 public:
@@ -67,6 +69,7 @@ private:
     std::mutex m_mtx;
     std::atomic<bool> m_bStop;
     std::condition_variable m_cv;
+    //ProcessCtrl m_processCtrl;
 };
 
 #endif // OCRCLIENT_H

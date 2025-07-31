@@ -124,6 +124,7 @@ namespace  ipc {
         Ocr_Word = 1,   //ocr to word文档
         Ocr_Execl = 2,   //ocr to excel表格
         Ocr_ScreenShot = 4,//截图转文字
+        Ocr_ShutDown    //关闭ocr服务进程
     };
     enum ErrorCodes {
         Success = 0,           // 成功

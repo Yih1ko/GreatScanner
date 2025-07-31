@@ -2,6 +2,7 @@
 #include "ui_historyrecorditem.h"
 #include <QDateTime>
 #include <QPainter>
+#include <QEnterEvent>
 
 HistoryRecordItem::HistoryRecordItem(QWidget *parent,
                                      SearchMetaData<Page::PAGE_HISTORY> recordMetaData)
@@ -37,9 +38,26 @@ void HistoryRecordItem::setSelected(bool selected)
 void HistoryRecordItem::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
-    painter.fillRect(rect(),  QColor(255, 255, 255)); // RGB颜色
-    // 可选：调用基类绘制其他内容（如边框）
+
+    // 根据悬浮状态选择颜色
+    QColor bgColor = m_isHovered ? QColor(0xf8, 0xf8, 0xf8) : QColor(255, 255, 255);
+    painter.fillRect(rect(),  bgColor);
+
     QWidget::paintEvent(event);
+}
+
+void HistoryRecordItem::enterEvent(QEnterEvent *event)
+{
+    m_isHovered = true;
+    update();  // 触发重绘
+    QWidget::enterEvent(event);
+}
+
+void HistoryRecordItem::leaveEvent(QEvent *event)
+{
+    m_isHovered = false;
+    update();  // 触发重绘
+    QWidget::leaveEvent(event);
 }
 
 void HistoryRecordItem::on_CheckBox_clicked()

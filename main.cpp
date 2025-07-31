@@ -17,6 +17,7 @@
 #include "TestWindow.h"
 #include "autocomplete.h"
 #include "historyrecorditem.h"
+#include "ipc/processctrl.h"
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +33,10 @@ int main(int argc, char *argv[])
     //login.show();
     MainWindow main;
     main.show();
+
+    // ProcessCtrl ctrl;
+    // // 启动记事本
+    // ctrl.StartProcess(L"C:\\Windows\\notepad.exe");
 
     // HistoryPage page;
     // page.show();

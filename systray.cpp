@@ -75,6 +75,12 @@ void Systray::addSysTrayMenu() {
 
     // 退出
     connect(action2, &QAction::triggered, []() {
+        //关闭ocr进程
+        try{
+            OcrClient::GetInstance()->PostOcrTask(ipc::IpcId::Ocr_ShutDown, QByteArray("shutdown"));
+        }catch (const std::exception& e) {
+            qDebug() << e.what();
+        }
         qApp->quit(); // 退出整个应用程序
     });
 }

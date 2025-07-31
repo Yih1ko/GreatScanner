@@ -140,10 +140,15 @@ void ControlWidget::on_ocrBtn_clicked()
 
     // 发送任务
     QJsonDocument doc(packet);
-    OcrClient::GetInstance()->PostOcrTask(
-        ipc::IpcId::Ocr_ScreenShot,
-        doc.toJson(QJsonDocument::Compact)
-        );
+    try{
+        OcrClient::GetInstance()->PostOcrTask(
+            ipc::IpcId::Ocr_ScreenShot,
+            doc.toJson(QJsonDocument::Compact)
+            );
+    }catch(const std::exception& e){
+        qDebug()<<e.what();
+    }
+
 
     qDebug() << "直接发送图像数据完成，buffer大小:" << buffer.size()  << "字节";
 

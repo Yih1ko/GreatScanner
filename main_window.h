@@ -60,9 +60,13 @@ private:
     void initToolsPageResults(); //初始化工具页面的所有可能搜索结果
     void processToolsSearch(const std::string& query,
                             QList<QPair<QString, MetaDataVariant>>& results);
+
     Systray* m_stray = nullptr;
+
     GlobalKeyEventMgr *m_keyMgr = nullptr;
+
     Screen* m_screen = nullptr;
+
     AutoComplete* m_completer = nullptr;
     SearchEngine<Page::PAGE_TOOLS> m_toolsSearchEngine;
     SearchEngine<Page::PAGE_HISTORY> m_historySearchEngine;

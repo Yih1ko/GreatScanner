@@ -164,24 +164,28 @@ void MainWindow::operationGate(const QString &operation)
 
 void MainWindow::on_ToolsPage_clicked()
 {
+    if(ui->ContentArea->currentIndex() == PAGE_TOOLS) return;
     ui->ContentArea->setCurrentIndex(PAGE_TOOLS);
 }
 
 
 void MainWindow::on_SettingsPage_clicked()
 {
+    if(ui->ContentArea->currentIndex() == PAGE_SETTINGS) return;
     ui->ContentArea->setCurrentIndex(PAGE_SETTINGS);
 }
 
 
 void MainWindow::on_BackUpPage_clicked()
 {
+    if(ui->ContentArea->currentIndex() == PAGE_BACKUP) return;
     ui->ContentArea->setCurrentIndex(PAGE_BACKUP);
 }
 
 
 void MainWindow::on_FileHistoryPage_clicked()
 {
+    if(ui->ContentArea->currentIndex() == PAGE_FILE_HISTORY) return;
     ui->ContentArea->setCurrentIndex(PAGE_FILE_HISTORY);
 }
 

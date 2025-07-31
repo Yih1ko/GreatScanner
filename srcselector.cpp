@@ -226,7 +226,11 @@ void SrcSelector::saveCapturedImage()
 
     if (flippedImage.save(filePath, "PNG")) {
         m_path = filePath;
-        m_funcMap[m_mod]();//执行回调: {0:普通ocr文字提取, }
+        try{
+            m_funcMap[m_mod]();//执行回调: {0:普通ocr文字提取, }
+        }catch(const std::exception& e){
+            qDebug()<<e.what();
+        }
         m_camera->stop();
         this->hide();
     } else {

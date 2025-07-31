@@ -61,6 +61,10 @@ OcrClient::OcrClient() {
     }
     m_server->Start();
     qDebug()<<"IPC-OCR服务初始化成功!";
+
+    //启动ocr引擎服务
+    ProcessCtrl::GetInstance()->StartProcess(L"D:\\Qt_Projects\\GreatScanner\\ocr_system_rls\\ocr_system.exe");
+
     QObject::connect(m_notify, &ShmChannelNotifyServer::respData, this, &OcrClient::slot_RespOcrRes);
     m_workThread = std::thread([this]() {
         while (true) {
@@ -82,6 +86,10 @@ OcrClient::OcrClient() {
             }
             if (m_server) {
                 // 发送消息，即使失败也不退出线程
+                // qDebug()<<task.m_data;
+                if(!ProcessCtrl::GetInstance()->IsRunning()){
+                    throw std::runtime_error("ocr进程未启动或意外关闭");
+                }
                 int ret = m_server->SendMsg(task.m_ipcId, task.m_data, task.m_data.size());
             }
         }
